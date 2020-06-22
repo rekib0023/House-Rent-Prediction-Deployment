@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>House Rent Prediction</title>
+</head>
+<body>
+
+    <!-- Page Content along with Footer -->
+    <div class="page-container">
+
+        <!-- Page Content -->
+        <div class="jumbotran card card-img bg-dark">
+            <div class="text-white text-center py-4 px-4">
+                <div>
+                    <h1 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong><a href="/" class="text-white" style="text-decoration: none;">House Rent Prediction</a></strong></h1>
+                    <p class="mx-5 mb-5">Predict the monthly rent of the houses in the States with an accuracy of 89%</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-content bg-warning-300 content-wrap">
+            {% block content %}{% endblock %}
+        </div>
+        <!-- Page Content -->
+
+        <!-- Footer -->
+        <footer class="footer font-small bg-dark">
+            <br>
+            <div class="contact text-center text-white">
+                <a target="_blank" href="#"><i class="fa fa-github fa-lg contact-icon"></i></a>
+                <a target="_blank" href="https://www.linkedin.com/in/rekib0023/"><i class="fa fa-linkedin fa-lg contact-icon"></i></a>
+            </div>
+
+          <!-- Copyright -->
+            <div class="footer-copyright text-white text-center py-3">
+                <p class='footer-description'>Made with ❤️  by Rekib Ahmed.</p>
+            </div>
+          <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
+    </div>
+    
+</body>

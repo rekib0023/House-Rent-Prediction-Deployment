@@ -1,0 +1,21 @@
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap {
+	background-image:
+  linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)),
+	url("https://images.pexels.com/photos/3646913/pexels-photo-3646913.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+	background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  font-weight: bold;
+  padding-bottom: 8rem;    /* Footer height */
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

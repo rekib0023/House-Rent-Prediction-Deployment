@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <br>
+<form method="POST" action="/predict">
+    <div class="row">
+        <div class="col form-group">
+            <label for="state">Select the state in which you want a house.</label>
+            <select class="form-control" name="state" id="state" required>
+                {% for state, abbv in config.STATES.items() %}
+                <option value="{{abbv.lower()}}">{{ state.capitalize() }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="region">Also select the region.</label>
+            <select class="form-control" name="region" id="region" required>
+                {% for key, values in config.STATES_REGION.items() %}
+                    <option class="bg-light font-weight-bold" disabled>{{ key }}</option>
+                    {% for value in values %}
+                        <option value="{{value}}">{{ value.capitalize() }}</option>
+                    {% endfor %}
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col form-group">
+            <label for="type">What type of house do you want?</label>
+            <select class="form-control" name="type" id="type" required>
+                {% for house_type in config.HOUSE_TYPE %}
+                <option value="{{house_type}}">{{ house_type.capitalize() }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="sqfeet">Specify the estimate square feet of the house.</label>
+            <input type="number" class="form-control" id="sqfeet" name="sqfeet" required>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col form-group">
+            <label for="beds">How many rooms do you want to have in the house?</label>
+            <input type="number" class="form-control" id="beds" name="beds" required>
+        </div>
+        <div class="col form-group">
+            <label for="baths">How many bathrooms do you want to have in the house?</label>
+            <input type="number" class="form-control" id="baths" name="baths" required>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col form-group">
+            <label>Smoking Allowed?</label>
+            <br><div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="smoking_allowed" id="smoking_yes" value="1" checked>
+                <label class="form-check-label" for="smoking_yes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="smoking_allowed" id="smoking_no" value="0">
+                <label class="form-check-label" for="smoking_no">No</label>
+            </div>
+        </div>
+        <div class="col form-group">
+            <label>Do you want to have wheelchair access in your house?</label>
+            <br><div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="wheelchair_access" id="wheelchair_yes" value="1" checked>
+                <label class="form-check-label" for="wheelchair_yes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="wheelchair_access" id="wheelchair_no" value="0">
+                <label class="form-check-label" for="wheelchair_no">No</label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col form-group">
+            <label>Do you want to have the facility to charge your electric vehicle?</label>
+            <br><div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="electric_vehicle_charge" id="electric_vehicle_charge_yes" value="1" checked>
+                <label class="form-check-label" for="electric_vehicle_charge_yes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="electric_vehicle_charge" id="electric_vehicle_charge_no" value="0">
+                <label class="form-check-label" for="electric_vehicle_charge_no">No</label>
+            </div>
+        </div>
+        <div class="col form-group">
+            <label>Do you want the house to come furnished?</label>
+            <br><div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="comes_furnished" id="comes_furnished_yes" value="1" checked>
+                <label class="form-check-label" for="comes_furnished_yes">Yes</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="comes_furnished" id="comes_furnished_no" value="0">
+                <label class="form-check-label" for="comes_furnished_no">No</label>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col form-group">
+            <label for="laundry_options">Select the laundry option.</label>
+            <select class="form-control" name="laundry_options" id="laundry_options" required>
+                {% for laundry in config.LAUNDRY_OPTIONS %}
+                <option value="{{laundry}}">{{ laundry.capitalize() }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col form-group">
+            <label for="parking_options">Select the parking option</label>
+            <select class="form-control" name="parking_options" id="parking_options" required>
+                {% for parking in config.PARKING_OPTIONS %}
+                <option value="{{parking}}">{{ parking.capitalize() }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    <br>
+</div>
+{% endblock content %}
