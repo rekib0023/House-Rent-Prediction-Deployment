@@ -21,9 +21,6 @@ pyparsing==2.4.7
 pytest==5.4.3
 python-dateutil==2.8.1
 pytz==2020.1
--e git+https://github.com/rekib0023/Deploying-House-Rent-Prediction-Model.git@7345c013d3de832ac62e54de84beddf5ac33a429#egg=randomforest_model&subdirectory=packages\randomforest_model
-# Editable install with no version control (regression-model==0.1.0)
--e c:\users\rkbra\documents\house price model deployment\packages\regression_model
 scikit-learn==0.22.2.post1
 scipy==1.4.1
 six==1.15.0
