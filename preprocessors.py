@@ -5,7 +5,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 
 
 class LogTransformer(BaseEstimator, TransformerMixin):
-    """Log transformation if the numerical variables"""
+    """Log transformation of the numerical variables"""
 
     def __init__(self, variables=None):
         if not isinstance(variables, list):

@@ -10,11 +10,6 @@ pipeline = joblib.load(filename=config.PIPELINE_NAME)
 
 
 @app.route('/', methods=['GET', 'POST'])
-def home_page():
-    return render_template('index.html', config=config)
-
-
-@app.route('/predict', methods=['POST'])
 def predict():
     if request.method == 'POST':
         region = str(request.form['region'])
@@ -48,7 +43,9 @@ def predict():
         data = pd.DataFrame(json_data, index=[0], columns=config.FEATURES)
         prediction = pipeline.predict(data)
         result = "The monthly house rent will be " + str(np.round(prediction[0])) + "."
-        return render_template('result.html', result=result)
+        return render_template('index.html', result=result, config=config)
+    else:
+        return render_template('index.html', config=config)
 
 
 @app.route('/predict_via_postman', methods=['POST'])
